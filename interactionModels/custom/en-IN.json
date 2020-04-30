@@ -1,0 +1,64 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "my quiz ad",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "QuestionIntent",
+          "slots": [],
+          "samples": [
+            "start",
+            "questions for quiz"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AnswerIntent",
+          "slots": [
+            {
+              "name": "answer",
+              "type": "AnswerSlot"
+            }
+          ],
+          "samples": [
+            "answer is {answer}",
+            "{answer}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "false"
+              }
+            },
+            {
+              "name": {
+                "value": "true"
+              }
+            }
+          ],
+          "name": "AnswerSlot"
+        }
+      ]
+    }
+  },
+  "version": "14"
+}
