@@ -19,7 +19,7 @@ const QuestionIntentHandler = {
     },
     handle(handlerInput) {
         console.log('QuestionIntent');
-      const questions = {question: 'DOZEN is equivalent to 20.? True or False?', answer: 'False'}
+      const questions = {question: 'DOZEN is equivalent to 20.? True or False?', answer: 'false'}       //You can map questions from external json file or db
       const speechText = questions.question
       return handlerInput.responseBuilder
         .speak(speechText)
@@ -37,7 +37,7 @@ const AnswerIntentHandler = {
         const slot = handlerInput.requestEnvelope.request.intent.slots;
         const AnswerSlot = slot['answer'].value.toLowerCase();
         var speechText ;
-        if(AnswerSlot === 'false'){
+        if(AnswerSlot === questions.answer){
           speechText = 'Correct.'
         } else {
           speechText = 'That is incorrect'
