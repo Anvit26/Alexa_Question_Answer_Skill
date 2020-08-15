@@ -12,14 +12,15 @@ const LaunchRequestHandler = {
             .getResponse();
     }
 };
+const questions = {question: 'DOZEN is equivalent to 20.? True or False?', answer: 'false'}       //You can map questions from external json file or db
 const QuestionIntentHandler = {
     canHandle(handlerInput) {
         return Alexa.getRequestType(handlerInput.requestEnvelope) === 'IntentRequest'
             && Alexa.getIntentName(handlerInput.requestEnvelope) === 'QuestionIntent';
     },
     handle(handlerInput) {
-        console.log('QuestionIntent');
-      const questions = {question: 'DOZEN is equivalent to 20.? True or False?', answer: 'false'}       //You can map questions from external json file or db
+        //console.log('QuestionIntent');
+        //console.log(questions);
       const speechText = questions.question
       return handlerInput.responseBuilder
         .speak(speechText)
@@ -35,9 +36,9 @@ const AnswerIntentHandler = {
     handle(handlerInput) {
        console.log('AnswerIntent');
         const slot = handlerInput.requestEnvelope.request.intent.slots;
-        const AnswerSlot = slot['answer'].value.toLowerCase();
+        const AnswerSlot = slot['answer'].value.toLowerCase();              //Collecting Answer
         var speechText ;
-        if(AnswerSlot === questions.answer){
+        if(AnswerSlot === questions.answer){                                //Checking Answer
           speechText = 'Correct.'
         } else {
           speechText = 'That is incorrect'
